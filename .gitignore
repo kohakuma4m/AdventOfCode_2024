@@ -1,3 +1,10 @@
+# AoC input files can't be shared (https://old.reddit.com/r/adventofcode/wiki/faqs/copyright/inputs)
+input.txt
+
+# Compiled solution files
+**/solution
+
+# Haskell github template
 dist
 dist-*
 cabal-dev
