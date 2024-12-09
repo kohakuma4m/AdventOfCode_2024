@@ -39,8 +39,8 @@ solution1 :: [String] -> String
 solution1 input =
   let (ls, rs) = parseInput input                   -- Parsing input into left and right lists
       (ls', rs') = (sort ls, sort rs)               -- Sorting left/right lists
-      xs = zip ls' rs'                              -- Pairing elements
-  in show $ sum $ map distance xs                   -- Adding all pairs' distances
+      pairs = zip ls' rs'                           -- Pairing elements
+  in show $ sum $ map distance pairs                -- Adding all pairs' distances
   where distance (a, b) = abs (a - b)
 
 solution2 :: [String] -> String

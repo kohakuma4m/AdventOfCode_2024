@@ -34,9 +34,9 @@ printSolution number value = do
 -------------------------------------------------------------------------
 
 solution1 :: [String] -> String
-solution1 _ = "..."
+solution1 input = "..."
 
 solution2 :: [String] -> String
-solution2 _ = "..."
+solution2 input = "..."
 
 -------------------------------------------------------------------------
