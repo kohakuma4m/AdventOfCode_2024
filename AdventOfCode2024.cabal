@@ -1,0 +1,38 @@
+cabal-version:      3.0
+name:               AdventOfCode2024
+version:            1.0.0
+synopsis:           Advent of Code 2024 (Haskell)
+license:            MIT
+license-file:       LICENSE
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+
+common shared-properties
+    default-language: Haskell2010
+    build-depends:
+        base ^>=4.17.2.1
+    ghc-options:
+        -Wall
+
+library
+    import:           shared-properties
+    hs-source-dirs:   libs
+    exposed-modules:  MyUtils
+
+executable day01
+    import:           shared-properties
+    hs-source-dirs:   day01
+    main-is:          solution.hs
+    build-depends:    AdventOfCode2024
+
+executable day02
+    import:           shared-properties
+    hs-source-dirs:   day02
+    main-is:          solution.hs
+    build-depends:    AdventOfCode2024
+
+executable day03
+    import:           shared-properties
+    hs-source-dirs:   day03
+    main-is:          solution.hs
+    build-depends:    AdventOfCode2024, regex-posix ^>=0.96.0.1

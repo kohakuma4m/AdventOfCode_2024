@@ -1,35 +1,21 @@
-import System.Environment(getArgs)
+{-# OPTIONS_GHC -Wno-unused-top-binds #-}
+import qualified MyUtils
 
 main :: IO ()
 main = do
-  input <- readInput
-  printSolution 1 $ solution1 input
-  printSolution 2 $ solution2 input
+  input <- MyUtils.readInput
+  MyUtils.printSolution 1 $ solution1 input
+  MyUtils.printSolution 2 $ solution2 input
 
 part1 :: IO ()
 part1 = do
-  input <- readInput
-  printSolution 1 $ solution1 input
+  input <- MyUtils.readInput
+  MyUtils.printSolution 1 $ solution1 input
 
 part2 :: IO ()
 part2 = do
-  input <- readInput
-  printSolution 2 $ solution2 input
-
--------------------------------------------------------------------------
-
-readInput :: IO [String]
-readInput = do
-  args <- getArgs
-  let filename = "./" ++ head args ++ ".txt"
-  fileContent <- readFile filename
-  return (lines fileContent)
-
-printSolution :: Integer -> String -> IO ()
-printSolution number value = do
-  putStrLn "====================="
-  putStrLn $ "Solution" ++ show number ++ ": " ++ value
-  putStrLn "====================="
+  input <- MyUtils.readInput
+  MyUtils.printSolution 2 $ solution2 input
 
 -------------------------------------------------------------------------
 
@@ -64,9 +50,9 @@ isSafeReport levels =
 
 generateAllSubListsWithOneRemovedElement :: [Int] -> [[Int]]
 generateAllSubListsWithOneRemovedElement xs =
-  let xs' = zip xs [0..]                                    -- List with added indexes
-  in foldl spliceListElement [] xs'                         -- Generating all possible list variations with only one element remove
+  let xs' = zip xs [0..]                                    -- List with added indexesede
+  in foldr spliceListElement [] xs'                         -- Generating all possible list variations with only one removed element
   where
-    spliceListElement ys (_, idx) =
+    spliceListElement (_, idx) ys =
       let (left, right) = splitAt idx xs
       in ys ++ [left ++ tail right]                         -- Removing element at given index position

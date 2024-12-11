@@ -16,26 +16,30 @@ To setup Haskell on your computer, follow this [guide](https://www.haskell.org/g
 
 2. Then install [VSCode extension](https://open-vsx.org/vscode/item?itemName=haskell.haskell) for Haskell support
 
+# To install packages, run
+
+```
+$ cabal install
+```
 
 # To run specific day solution, use
 
-- `ghc` compiler to compile and run solution binary (both parts)
-    ```
-    > cd dayXX
-    > ghc solution.hs
-    > ./solution fileName           Both solutions
-    ```
+```
+$ cabal run dayXX filename
+```
 
-    or
+Where `dayXX` is the solution folder, and `filename` is the input file name (without the `.txt` extension)
 
-- `ghci` interactive environment to run each part of the solution together or separately
-    ```
-    > cd dayXX
-    > ghci solution.hs
-    ghci> :main filename            Both solutions
-    ghci> :run part1 filename       Part 1 solution only
-    ghci> :run part2 filename       Part 2 solution only
-    ```
+### Alternative
+
+You can use solution interactively with ghci by using
+
+```
+$ cabal repl dayXX
+ghci> :run main dayXX/filename              Both parts
+ghci> :run part1 dayXX/filename             Part 1 only
+ghci> :run part2 dayXX/filename             Part 2 only
+```
 
 # Disclaimer
 This is my own personal sandbox. All solutions are work in progress...
